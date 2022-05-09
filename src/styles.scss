@@ -1,2 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+
+body {
+    --text-color: #222;
+    --bkg-color: #fff;
+    --btn-txt-color: white;
+    --btn-bg-color: #0b58a0;
+  }
+  
+body.dark-theme {
+    --text-color: #eee;
+    --background-color:  #000C24;
+    --calculator-color:#011140;
+    --btn-txt-color: rgb(255, 255, 255);
+    --btn-bg-color:#23278D;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+button{
+    background-color: var(--btn-bg-color);
+}
+
+h1,h2,p,span,b,h4,i{
+    color: var(--text-color);
+}
+
