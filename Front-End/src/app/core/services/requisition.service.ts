@@ -7,14 +7,14 @@ import { HttpClient } from '@angular/common/http';
 export class reqService {
   constructor(private http:HttpClient){}
 
-  rootUrl = '/api';
+  rootUrl = 'http://localhost:8080';
 
   getCount(){
-    return this.http.get(this.rootUrl + '/counter');
+    return this.http.get(this.rootUrl);
   }
 
   addCount(count:any){
-    return this.http.post(this.rootUrl + '/counter',{count});
+    return this.http.post(this.rootUrl + '/calcular',{count});
   }
 
 }

@@ -13,7 +13,7 @@
         </i>
       </div>
     </div>
-  
+
   <!-- Calculator -->
   <div class="col-xxl-12 d-flex justify-content-center">
     <div class="calculator">
@@ -24,7 +24,7 @@
         </div>
         <!-- Teclado -->
         <div class="keyboard">
-              <button class="btn btn-info col-4" *ngFor="let numeros of prop" value="{{numeros}}">{{numeros}}</button>
+              <button class="btn btn-info col-4" *ngFor="let numeros of prop" value="{{numeros}}" (click)="addNumber(numeros)">{{numeros}}</button>
           </div>
         <!-- Historico -->
         <div class="history">

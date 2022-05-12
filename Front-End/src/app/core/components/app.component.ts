@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { reqService } from '../services/requisition.service';
 
 @Component({
@@ -6,10 +7,22 @@ import { reqService } from '../services/requisition.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  constructor(private reqService:reqService){}
 
-  ngOnInit(): void {}
+export class AppComponent implements OnInit,DoCheck{
+
+  constructor(private reqService:reqService){}
+  ngDoCheck(): void {
+    console.log(this.getnum)
+  }
+
+  getnum = ''
+  count: any[]=[];
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+  ngOnInit(): void {
+    this.getAllUsers()
+    console.log(this.count)
+  }
 
   toggleDarkTheme(): void {
     document.body.classList.toggle('dark-theme');
@@ -18,8 +31,21 @@ export class AppComponent implements OnInit{
   prop = [0,1,2,3,4,5,6,7,8,9,"+","-","*","/","Calcular"];
   resultado = "";
 
-  getCount(){
-    this.reqService.getCount().pipe
+  getAllUsers() {
+    this.reqService.getCount().pipe(takeUntil(this.destroy$)).subscribe((count: any) => {
+        this.count = count;
+    });
+  }
+
+  addNumber(num:any){
+    this.reqService.addCount(num).subscribe(Response => {
+      console.log(num)
+    })
+  }
+
+  getNumber(num:any){
+    this.getnum = num;
+
   }
 
 }
