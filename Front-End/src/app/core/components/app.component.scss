@@ -1,6 +1,6 @@
 .calculator{
     background-color: #56C1E6;
-    height: 550px;
+    height: 580px;
     width: 500px;
     box-shadow: 1px 4px 0px #2b5f70;
 }
@@ -11,6 +11,7 @@
     width: 80%;
     box-shadow: inset -1px 4px 0px #2d6d75;
     position: relative;
+    overflow: hidden;
 }
 
 .result{

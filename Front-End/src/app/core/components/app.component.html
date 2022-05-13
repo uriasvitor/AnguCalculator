@@ -20,11 +20,13 @@
       <div class="row">
         <!-- Visor -->
         <div class="visor m-auto my-5">
-          <p class="result me-md-3">9</p>
+          <p class="result me-md-3">{{display}}</p>
         </div>
         <!-- Teclado -->
         <div class="keyboard">
-              <button class="btn btn-info col-4" *ngFor="let numeros of prop" value="{{numeros}}" (click)="addNumber(numeros)">{{numeros}}</button>
+              <button class="btn btn-info col-4" *ngFor="let numeros of prop" value="{{numeros}}" (click)="getNumber(numeros)">{{numeros}}</button>
+              <button class="btn btn-info col-4" (click)="clearDisplay()">CE</button>
+              <button class="btn btn-info col-12" (click)="postNumber(values)">Calcular</button>
           </div>
         <!-- Historico -->
         <div class="history">
