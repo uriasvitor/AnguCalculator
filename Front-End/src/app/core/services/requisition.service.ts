@@ -10,7 +10,7 @@ export class reqService {
   rootUrl = 'http://localhost:8080';
 
   getCount(){
-    return this.http.get(this.rootUrl);
+    return this.http.get(this.rootUrl + '/calcular');
   }
 
   addCount(count:any){

@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { reqService } from '../services/requisition.service';
 
 @Component({
@@ -8,11 +8,15 @@ import { reqService } from '../services/requisition.service';
 })
 
 export class AppComponent implements OnInit,DoCheck{
-  display = '0';
+  display:any = '0';
   values = '';
-  prop = [0,1,2,3,4,5,6,7,8,9,"+","-","*","/"];
+  prop = [0,1,2,3,4,5,6,7,8,9];
 
   constructor(private reqService:reqService){}
+  ngOnInit(): void {
+    const theme = localStorage.getItem('theme');
+  }
+
   ngDoCheck(): void {
     console.log(this.display)
   }
@@ -25,26 +29,29 @@ export class AppComponent implements OnInit,DoCheck{
         this.values = this.display
       }
   }
-  getResult(){
-    this.reqService.getCount().subscribe(res =>{
-      console.log('')
-    })
+  pressOperator(op: string) {
+    const lastKey = this.display[this.display.length - 1];
+    if (lastKey === '/' || lastKey === '*' || lastKey === '-' || lastKey === '+')  {
+      return;
+    }
+    this.display = this.display + op
   }
+
   clearDisplay(){
     this.display = '0';
+    window.location.reload();
   }
 
   postNumber(num:any){
-    this.reqService.addCount(num).subscribe(Response => {
-      console.log(num);
-      this.getNumber(0)
-      console.log(this.display)
+    this.reqService.addCount(num).subscribe(res => {
+      this.display = res
     })
   }
 
-  ngOnInit(): void {}
-
   toggleDarkTheme(): void {
     document.body.classList.toggle('dark-theme');
+    const theme = localStorage.setItem('theme','dark');
   }
+
+
 }
