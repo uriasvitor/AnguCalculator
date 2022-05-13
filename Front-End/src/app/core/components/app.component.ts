@@ -13,9 +13,7 @@ export class AppComponent implements OnInit,DoCheck{
   prop = [0,1,2,3,4,5,6,7,8,9];
 
   constructor(private reqService:reqService){}
-  ngOnInit(): void {
-    const theme = localStorage.getItem('theme');
-  }
+  ngOnInit(): void {}
 
   ngDoCheck(): void {
     console.log(this.display)
@@ -42,6 +40,7 @@ export class AppComponent implements OnInit,DoCheck{
     window.location.reload();
   }
 
+
   postNumber(num:any){
     this.reqService.addCount(num).subscribe(res => {
       this.display = res
@@ -50,7 +49,6 @@ export class AppComponent implements OnInit,DoCheck{
 
   toggleDarkTheme(): void {
     document.body.classList.toggle('dark-theme');
-    const theme = localStorage.setItem('theme','dark');
   }
 
 

@@ -29,4 +29,64 @@ h1,h2,p,span,b,h4,i{
     color: var(--text-color);
 }
 
+.cambiar-tema {
+  position: absolute;
+  right: 70px;
+  top: 70px;
+}
+
+.cambiar-tema #btn-light {
+  display: none;
+}
+
+.cambiar-tema .btn {
+  margin: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.cambiar-tema .btn i {
+  color: var(--primary);
+  font-size: 25px;
+  transition: 0.1s;
+}
+
+.cambiar-tema button i:hover {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Contenido */
+section {
+   max-width: 800px;
+   height: 100%;
+   margin: 15% auto 0 auto;
+}
+
+section h1 {
+  color: var(--dcolor);
+  font-size: 45px;
+}
+
+section .text-primary {
+  color: var(--primary);
+}
+
+/* Enlace principal */
+a.primary-link {
+background-color: var(--bcolor);
+padding: 10px 25px;
+border-radius: 25px;
+}
+
+a.primary-link:hover {
+background-color: var(--primary);
+color: #ffffff;
+}
+
+
 
