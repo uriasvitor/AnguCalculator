@@ -1,29 +1,13 @@
 const router = require("express").Router()
 
 router.post("/", (req, res) => {
-    let { numb1, numb2, operador } = req.query
+    const {count} = req.body
 
-    numb1 = Number(numb1)
-    numb2 = Number(numb2)
-
-    if(!numb1 || !numb2){
-        res.status(500).send("Os Numeros nao podem ser nulos")
-        return
+    if(/^[0-9\+\-\*/]*$/.test(count)){
+        res.send(`${eval(count)}`)
+    }else{
+        res.status(500).send("Erro na expressão!")
     }
-
-    let calcResult = null
-
-    if(operador === "+") calcResult = numb1 + numb2
-    else if(operador === "-") calcResult = numb1 - numb2
-    else if(operador === "/") calcResult = numb1 / numb2
-    else if(operador === "*") calcResult = numb1 * numb2
-    else {
-        res.status(500).send("Deu Merda no operador")
-        return
-    }
-
-
-    res.send(`${calcResult}`)
 })
 
 module.exports = router
