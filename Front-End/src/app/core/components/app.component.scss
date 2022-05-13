@@ -39,7 +39,8 @@ button{
     height: 150px;
     background-color: #F9CC72;
     outline: 2px solid greenyellow;
-    box-shadow: inset -4px 4px 0px #2d6d75
+    box-shadow: inset -4px 4px 0px #2d6d75;
+    overflow: scroll;
 }
 
 i{

@@ -33,8 +33,9 @@
               <button class="btn btn-info col-12" (click)="postNumber(values)" value="=" >Calcular</button>
           </div>
         <!-- Historico -->
-        <div class="history">
-            <p class="time-lapse"></p>
+        <div class="history" >
+            <p class="time-lapse" *ngFor="let history of old">
+              {{history.expressao}} = {{history.resultado}} <span>{{history.data | date }}</span></p>
           </div>
         </div>
       </div>

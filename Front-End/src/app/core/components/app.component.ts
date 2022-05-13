@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { reqService } from '../services/requisition.service';
+import { valores } from '../models/calculos.model';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,20 @@ export class AppComponent implements OnInit,DoCheck{
   display:any = '0';
   values = '';
   prop = [0,1,2,3,4,5,6,7,8,9];
+  old?:valores[];
 
   constructor(private reqService:reqService){}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getOld()
+  }
 
   ngDoCheck(): void {
     console.log(this.display)
+  }
+  getOld(){
+    this.reqService.getOld().subscribe((res:any) => {
+      this.old = res
+    })
   }
 
   getNumber(num:any){
@@ -45,6 +54,7 @@ export class AppComponent implements OnInit,DoCheck{
     this.reqService.addCount(num).subscribe(res => {
       this.display = res
     })
+    this.getOld()
   }
 
   toggleDarkTheme(): void {
