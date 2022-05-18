@@ -9,7 +9,7 @@
 
 # A Ideia
 
-A ideia principal do projeto era fazer com que a calculadora fize-se calculos no Back-end (feitos pelo NodeJs) e salva-se no banco de dados MariaDb
+A ideia principal do projeto era fazer com uma calculadora que fize-se calculos no Back-end (feitos pelo NodeJs) e salva-se no banco de dados (MariaDb)
 
 ![image](https://user-images.githubusercontent.com/81401104/168928557-33a935f7-5f9a-47f9-b578-9c6fbb918eac.png)
 
