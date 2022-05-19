@@ -24,7 +24,7 @@ A ideia principal do projeto era fazer com uma calculadora que fize-se calculos 
 
 #### Por final o Angular envia os dados para o Back-end e em seguida são salvos no Banco de Dados 
 
-##### Arquitetura da Calculadora foi pensada assim:
+##### Arquitetura da Calculadora foi pensada assim (esboço):
 ![image](https://user-images.githubusercontent.com/81401104/168929708-1c39b396-a892-4d0b-949e-7a9fb87d1241.png)
 
 ## Projeto Final (dark)
